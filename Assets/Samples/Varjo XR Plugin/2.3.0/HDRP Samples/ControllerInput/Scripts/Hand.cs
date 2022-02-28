@@ -14,8 +14,7 @@ namespace VarjoExample
         private bool triggerDown;
         private FixedJoint fixedJoint = null;
         private Interactable currentInteractable;
-        //private Rigidbody heldObjectBody;
-        private ArticulationBody articulationBody;
+        private Rigidbody heldObjectBody;
 
         void Awake()
         {
@@ -73,11 +72,8 @@ namespace VarjoExample
             }
 
             // Attach
-            //heldObjectBody = currentInteractable.GetComponent<Rigidbody>();
-            //fixedJoint.connectedBody = heldObjectBody;
-
-            articulationBody = currentInteractable.GetComponent<ArticulationBody>();
-            fixedJoint.connectedArticulationBody = articulationBody;
+            heldObjectBody = currentInteractable.GetComponent<Rigidbody>();
+            fixedJoint.connectedBody = heldObjectBody;
 
             // Set active hand
             currentInteractable.activeHand = this;
@@ -89,7 +85,7 @@ namespace VarjoExample
                 return;
 
             // Detach
-            fixedJoint.connectedArticulationBody = null;
+            fixedJoint.connectedBody = null;
 
             // Apply velocity
             /*

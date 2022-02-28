@@ -89,7 +89,7 @@ namespace VarjoExample
                 return;
 
             // Detach
-            fixedJoint.connectedBody = null;
+            fixedJoint.connectedArticulationBody = null;
 
             // Apply velocity
             /*

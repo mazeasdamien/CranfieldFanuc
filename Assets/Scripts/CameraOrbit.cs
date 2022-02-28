@@ -16,6 +16,9 @@ namespace TDLN.CameraControllers
         public float yMinLimit = -20;
         public float yMaxLimit = 80;
 
+        public float dragSpeed = 2;
+        private Vector3 dragOrigin;
+
         float x = 0.0f;
         float y = 0.0f;
 
@@ -34,7 +37,7 @@ namespace TDLN.CameraControllers
             {
                 if (distance < 1) distance = 1;
                 distance -= Input.GetAxis("Mouse ScrollWheel") * 2;
-                if (target && (Input.GetMouseButton(0) || Input.GetMouseButton(1)))
+                if (target && (Input.GetMouseButton(1)))
                 {
                     var pos = Input.mousePosition;
                     float dpiScale;
@@ -72,6 +75,18 @@ namespace TDLN.CameraControllers
                     transform.SetPositionAndRotation(po, rot);
                 }
             }
+            if (Input.GetMouseButtonDown(2))
+            {
+                dragOrigin = Input.mousePosition;
+                return;
+            }
+
+            if (!Input.GetMouseButton(2)) return;
+
+            Vector3 posi = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
+            Vector3 move = new Vector3(posi.x * dragSpeed, 0, posi.y * dragSpeed);
+            target.transform.Translate(move,Space.World);
+            transform.Translate(move, Space.World);
         }
 
         public static bool IsPointerOverUIObject()

@@ -29,10 +29,7 @@ public class ButtonManager : MonoBehaviour
                 .AddMember(new EnumMember("RESET", ordinal: 0))
                 .AddMember(new EnumMember("ABORT", ordinal: 1))
                 .AddMember(new EnumMember("HOME", ordinal: 2))
-                .AddMember(new EnumMember("TELEOP", ordinal: 3))
-                .AddMember(new EnumMember("PATH", ordinal: 4))
-                .AddMember(new EnumMember("OPEN", ordinal: 5))
-                .AddMember(new EnumMember("CLOSE", ordinal: 6))
+                .AddMember(new EnumMember("PATH", ordinal: 3))
                 .Create();
 
             var OperatorRequest = typeFactory.BuildStruct()
@@ -71,35 +68,10 @@ public class ButtonManager : MonoBehaviour
         writer.Write(sample);
     }
 
-    public void TELEOPButton()
-    {
-        teleoppanel.SetActive(true);
-        sample.SetValue("Buttons", 3);
-        sample.SetValue("Samples", count);
-        count++;
-        writer.Write(sample);
-    }
-
     public void PATHButton()
     {
-        teleoppanel.SetActive(false);
+        teleoppanel.SetActive(true);
         sample.SetValue("Buttons", 4);
-        sample.SetValue("Samples", count);
-        count++;
-        writer.Write(sample);
-    }
-
-    public void OPENButton()
-    {
-        sample.SetValue("Buttons", 5);
-        sample.SetValue("Samples", count);
-        count++;
-        writer.Write(sample);
-    }
-
-    public void CLOSEButton()
-    {
-        sample.SetValue("Buttons", 6);
         sample.SetValue("Samples", count);
         count++;
         writer.Write(sample);

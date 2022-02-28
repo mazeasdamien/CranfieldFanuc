@@ -9,4 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
+    Varjo.XR.Settings: {fileID: 11400000, guid: 4bf588ea4cb703e4a9faa3f604418d8c, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8ab0ffe256eb4c5489c510b2a0132587, type: 2}

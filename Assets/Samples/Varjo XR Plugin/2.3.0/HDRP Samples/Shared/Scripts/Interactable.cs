@@ -2,6 +2,7 @@
 
 namespace VarjoExample
 {
+    [RequireComponent(typeof(ArticulationBody))]
     public class Interactable : MonoBehaviour
     {
         [HideInInspector]

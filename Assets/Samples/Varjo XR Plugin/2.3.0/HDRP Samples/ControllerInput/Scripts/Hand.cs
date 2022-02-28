@@ -88,9 +88,10 @@ namespace VarjoExample
             fixedJoint.connectedBody = null;
 
             // Apply velocity
+            /*
             heldObjectBody = currentInteractable.GetComponent<Rigidbody>();
             heldObjectBody.velocity = xrRig.TransformVector(controller.DeviceVelocity);
-            heldObjectBody.angularVelocity = xrRig.TransformDirection(controller.DeviceAngularVelocity);
+            heldObjectBody.angularVelocity = xrRig.TransformDirection(controller.DeviceAngularVelocity);*/
 
             // Clear
             currentInteractable.activeHand = null;

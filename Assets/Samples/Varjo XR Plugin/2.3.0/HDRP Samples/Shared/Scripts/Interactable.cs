@@ -2,7 +2,6 @@
 
 namespace VarjoExample
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class Interactable : MonoBehaviour
     {
         [HideInInspector]

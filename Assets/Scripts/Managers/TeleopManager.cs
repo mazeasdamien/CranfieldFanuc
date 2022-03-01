@@ -19,7 +19,6 @@ public class TeleopManager : MonoBehaviour
         {
             init = true;
 
-
             var typeFactory = DynamicTypeFactory.Instance;
 
             var OperatorNewPose = typeFactory.BuildStruct()

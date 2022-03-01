@@ -9,7 +9,7 @@ public class FanucManager : MonoBehaviour
 {
     public List<ArticulationBody> joints;
     public Transform worldPosition;
-    private DDSHandler dDSHandler;
+    public DDSHandler dDSHandler;
     private protected DataReader<DynamicData> reader { get; private set; }
 
     private bool init = false;
@@ -29,11 +29,6 @@ public class FanucManager : MonoBehaviour
     public TMP_Text p;
     public TMP_Text r;
     public TMP_Text alarm;
-
-    private void Start()
-    {
-        dDSHandler = gameObject.AddComponent<DDSHandler>();
-    }
 
     private void Update()
     {

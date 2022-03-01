@@ -5,18 +5,11 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    private DDSHandler dDSHandler;
+    public DDSHandler dDSHandler;
     private protected DataWriter<DynamicData> writer { get; private set; }
     private DynamicData sample = null;
     private bool init = false;
     private int count = 1;
-    public GameObject teleoppanel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        dDSHandler = gameObject.AddComponent<DDSHandler>();
-    }
 
     void Update()
     {
@@ -33,46 +26,48 @@ public class ButtonManager : MonoBehaviour
                 .Create();
 
             var OperatorRequest = typeFactory.BuildStruct()
-               .WithName("OperatorRquests")
+               .WithName("OR")
                .AddMember(new StructMember("Buttons", OperatorButtons))
-               .AddMember(new StructMember("Samples", typeFactory.GetPrimitiveType<int>()))
+               .AddMember(new StructMember("S", typeFactory.GetPrimitiveType<int>()))
                .Create();
 
-            writer = dDSHandler.SetupDataWriter("OperatorRequests_Topic", OperatorRequest);
+            writer = dDSHandler.SetupDataWriter("OR_Topic", OperatorRequest);
             sample = new DynamicData(OperatorRequest);
         }
     }
 
     public void RESETButton()
     {
+        Debug.Log("RESET");
         sample.SetValue("Buttons", 0);
-        sample.SetValue("Samples", count);
+        sample.SetValue("S", count);
         count++;
         writer.Write(sample);
     }
 
     public void ABORTButton()
     {
+        Debug.Log("ABORT");
         sample.SetValue("Buttons", 1);
-        sample.SetValue("Samples", count);
+        sample.SetValue("S", count);
         count++;
         writer.Write(sample);
     }
 
     public void HOMEButton()
     {
-        teleoppanel.SetActive(false);
+        Debug.Log("HOME");
         sample.SetValue("Buttons", 2);
-        sample.SetValue("Samples", count);
+        sample.SetValue("S", count);
         count++;
         writer.Write(sample);
     }
 
     public void PATHButton()
     {
-        teleoppanel.SetActive(true);
-        sample.SetValue("Buttons", 4);
-        sample.SetValue("Samples", count);
+        Debug.Log("PATH");
+        sample.SetValue("Buttons", 3);
+        sample.SetValue("S", count);
         count++;
         writer.Write(sample);
     }

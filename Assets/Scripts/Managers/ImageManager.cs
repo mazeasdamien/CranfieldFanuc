@@ -7,9 +7,8 @@ using UnityEngine.UI;
 
 public class ImageManager : MonoBehaviour
 {
-    public GUISkin skin;
     private bool init = false;
-    private DDSHandler dDSHandler;
+    public DDSHandler dDSHandler;
     private protected DataReader<DynamicData> reader { get; private set; }
     public TMP_Text clock;
     public TMP_Text samplesCount;
@@ -19,7 +18,6 @@ public class ImageManager : MonoBehaviour
     void Start()
     {
         texture2D = new Texture2D(1, 1);
-        dDSHandler = gameObject.AddComponent<DDSHandler>();
     }
 
     void Update()

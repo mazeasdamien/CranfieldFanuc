@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    public DDSHandler dDSHandler;
+    private DDSHandler dDSHandler;
     private protected DataWriter<DynamicData> writer { get; private set; }
     private DynamicData sample = null;
     private bool init = false;
     private int count = 1;
+    private void Start()
+    {
+        dDSHandler = gameObject.GetComponent<DDSHandler>();
+    }
 
     void Update()
     {

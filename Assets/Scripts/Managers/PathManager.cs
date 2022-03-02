@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class PathManager : MonoBehaviour
 {
-    public DDSHandler dDSHandler;
+    private DDSHandler dDSHandler;
     private protected DataWriter<DynamicData> writer { get; private set; }
     private DynamicData sample = null;
     private bool init = false;
 
     public int id = 0;
     public int totalId = 0;
+
+   
+    private void Start()
+    {
+        dDSHandler = gameObject.GetComponent<DDSHandler>();
+    }
+
 
     void Update()
     {

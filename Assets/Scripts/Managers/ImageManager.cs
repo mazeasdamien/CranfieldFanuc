@@ -28,21 +28,15 @@ public class ImageManager : MonoBehaviour
 
             var typeFactory = DynamicTypeFactory.Instance;
             StructType RobotImage = typeFactory.BuildStruct()
-                .WithName("RobotImage")
+                .WithName("Video")
                 .AddMember(new StructMember("Clock", typeFactory.CreateString(bounds: 50)))
                 .AddMember(new StructMember("Sample", typeFactory.GetPrimitiveType<int>()))
-                .AddMember(new StructMember("sequence_Memory", typeFactory.CreateSequence(typeFactory.GetPrimitiveType<byte>(), 600000)))
+                .AddMember(new StructMember("Memory", typeFactory.CreateSequence(typeFactory.GetPrimitiveType<byte>(), 1000000)))
                 .Create();
 
-            reader = dDSHandler.SetupDataReader("RobotImage_Topic", RobotImage);
+            reader = dDSHandler.SetupDataReader("Video_Topic", RobotImage);
         }
 
-        ProcessData(reader);
-    }
-
-    void ProcessData(AnyDataReader anyReader)
-    {
-        var reader = (DataReader<DynamicData>)anyReader;
         using var samples = reader.Take();
         foreach (var sample in samples)
         {
@@ -52,7 +46,7 @@ public class ImageManager : MonoBehaviour
 
                 clock.text = data.GetValue<string>(memberName: "Clock");
                 samplesCount.text = $"Samples sent: {data.GetValue<int>("Sample")}";
-                texture2D.LoadImage(data.GetValue<byte[]>("sequence_Memory"));
+                texture2D.LoadImage(data.GetValue<byte[]>("Memory"));
                 texture2D.Apply();
                 rawTexture.texture = texture2D;
             }

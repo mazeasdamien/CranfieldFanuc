@@ -16,11 +16,15 @@ public class PointCloudManager : MonoBehaviour
 
     private bool init = false;
 
-    public DDSHandler dDSHandler;
+    private DDSHandler dDSHandler;
     private protected DataReader<DynamicData> reader { get; private set; }
     public TMP_Text clock;
     public TMP_Text samplesCount;
 
+    private void Start()
+    {
+        dDSHandler = gameObject.GetComponent<DDSHandler>();
+    }
     // Update is called once per frame
     private void Update()
     {

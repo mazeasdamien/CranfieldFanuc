@@ -15,7 +15,7 @@ public class TeleopReachability : MonoBehaviour
 
     private void Start()
     {
-        dDSHandler = gameObject.AddComponent<DDSHandler>();
+        dDSHandler = gameObject.GetComponent<DDSHandler>();
     }
 
     private void Update()

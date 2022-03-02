@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AlarmManager : MonoBehaviour
 {
-    public DDSHandler dDSHandler;
+    private DDSHandler dDSHandler;
     private protected DataReader<DynamicData> reader { get; private set; }
 
     private bool init = false;
@@ -14,6 +14,10 @@ public class AlarmManager : MonoBehaviour
     public TMP_Text samplesCount;
     public TMP_Text alarm;
 
+    private void Start()
+    {
+        dDSHandler = gameObject.GetComponent<DDSHandler>();
+    }
 
     // Update is called once per frame
     void Update()

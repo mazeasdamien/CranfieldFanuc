@@ -86,21 +86,24 @@ namespace VarjoExample
 
         void TaskClick()
         {
-            if (button.name == "RESET")
+            if (button != null)
             {
-                buttonManager.RESETButton();
-            }
-            else if (button.name == "ABORT")
-            {
-                buttonManager.ABORTButton();
-            }
-            else if (button.name == "PATH")
-            {
-                buttonManager.PATHButton();
-            }
-            else if (button.name == "HOME")
-            {
-                buttonManager.HOMEButton();
+                if (button.name == "RESET")
+                {
+                    buttonManager.RESETButton();
+                }
+                else if (button.name == "ABORT")
+                {
+                    buttonManager.ABORTButton();
+                }
+                else if (button.name == "PATH")
+                {
+                    buttonManager.PATHButton();
+                }
+                else if (button.name == "HOME")
+                {
+                    buttonManager.HOMEButton();
+                }
             }
         }
 

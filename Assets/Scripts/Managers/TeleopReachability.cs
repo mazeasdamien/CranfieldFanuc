@@ -8,6 +8,7 @@ public class TeleopReachability : MonoBehaviour
     private DDSHandler dDSHandler;
     private protected DataReader<DynamicData> reader { get; private set; }
 
+    public Material rend;
     private bool init = false;
     public GameObject controller;
     public TMP_Text clock;
@@ -50,11 +51,11 @@ public class TeleopReachability : MonoBehaviour
                 samplesCount.text = $"Samples sent: {data.GetValue<int>("Sample")}";
                 if (data.GetValue<bool>("isReachable") == true)
                 {
-                    controller.GetComponent<MeshRenderer>().material.color = Color.green;
+                    rend.color = Color.green;
                 }
                 else
                 {
-                    controller.GetComponent<MeshRenderer>().material.color = Color.red;
+                    rend.color = Color.red;
                 }
             }
         }

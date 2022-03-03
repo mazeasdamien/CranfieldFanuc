@@ -42,7 +42,6 @@ public class ButtonManager : MonoBehaviour
 
     public void RESETButton()
     {
-        Debug.Log("RESET");
         sample.SetValue("Buttons", 0);
         sample.SetValue("S", count);
         count++;
@@ -51,7 +50,6 @@ public class ButtonManager : MonoBehaviour
 
     public void ABORTButton()
     {
-        Debug.Log("ABORT");
         sample.SetValue("Buttons", 1);
         sample.SetValue("S", count);
         count++;
@@ -60,7 +58,6 @@ public class ButtonManager : MonoBehaviour
 
     public void HOMEButton()
     {
-        Debug.Log("HOME");
         sample.SetValue("Buttons", 2);
         sample.SetValue("S", count);
         count++;
@@ -69,7 +66,6 @@ public class ButtonManager : MonoBehaviour
 
     public void PATHButton()
     {
-        Debug.Log("PATH");
         sample.SetValue("Buttons", 3);
         sample.SetValue("S", count);
         count++;

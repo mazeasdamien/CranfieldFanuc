@@ -51,6 +51,8 @@ public class TeleopManager : MonoBehaviour
             sample.SetValue("P", CreateFanucWPRFromQuaternion(updater.localRotation).y);
             sample.SetValue("R", CreateFanucWPRFromQuaternion(updater.localRotation).z);
 
+            Debug.Log(CreateFanucWPRFromQuaternion(updater.localRotation).x + "  " + CreateFanucWPRFromQuaternion(updater.localRotation).y + "  " + CreateFanucWPRFromQuaternion(updater.localRotation).z);
+
             sample.SetValue("Samples", count);
             count++;
             writer.Write(sample);

@@ -5,9 +5,8 @@ using System.Collections.Generic;
 
 public class PingManager : MonoBehaviour
 {
-    public string ip;
     public TMP_Text ping;
-    float elapsed = 0f;
+    float elapsed = 0.5f;
 
     private void Update()
     {
@@ -15,14 +14,14 @@ public class PingManager : MonoBehaviour
         if (elapsed >= 1f)
         {
             elapsed = elapsed % 1f;
-            StartCoroutine(StartPing(ip));
+            StartCoroutine(StartPing());
         }
     }
 
-    IEnumerator StartPing(string ip)
+    IEnumerator StartPing()
     {
         WaitForSeconds f = new WaitForSeconds(1f);
-        Ping p = new Ping("");
+        Ping p = new Ping("LAP002408.cns.cranfield.ac.uk");
         while (p.isDone == false)
         {
             yield return f;

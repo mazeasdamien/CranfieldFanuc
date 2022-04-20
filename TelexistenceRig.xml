@@ -8,8 +8,8 @@
           </transport_builtin>
           <discovery>
             <initial_peers>
-              <element>138.250.111.165</element>
-              <element>138.250.153.1</element>
+              <element>DPC000554.cns.cranfield.ac.uk</element>
+              <element>LAP002408.cns.cranfield.ac.uk</element>
             </initial_peers>
           </discovery>
 		<receiver_pool>
